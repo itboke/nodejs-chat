@@ -3,6 +3,7 @@ http = require('http')
 path = require('path')
 mime = require('mime')
 fs = require('fs')
+chat = require('./server_chat')
 cache = {}
 ### 全局 http 请求文件不存在 发送404 ###
 send404 = (response)->
@@ -15,7 +16,6 @@ sendFile = (response,filepath,fileContent)->
 	response.end fileContent
 ### 提供静态文件服务 ###
 serveStatic = (response,cache,absPath)->
-	console.log(absPath)
 	if cache[absPath]
 		response.write('有缓存')
 	else
