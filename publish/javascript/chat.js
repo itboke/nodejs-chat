@@ -4,19 +4,43 @@
 var chat;
 
 chat = {
-  ws: io.connect('http://127.0.0.1:8888'),
+  ws: io.connect('127.0.0.1:8888'),
 
   /* 绑定客户端监听 */
   init: function() {
     var _self;
     _self = this;
-    return _self.bind();
+    _self.bind();
+    return _self.onMessage();
   },
   sendMessage: function(message) {
-    return ws.emit('send', message);
+    var _self;
+    _self = this;
+    return _self.ws.emit('send', message);
+  },
+  onMessage: function() {
+    var _self;
+    _self = this;
+    return _self.ws.on('get', function(msg) {
+      return _self.setMessage(msg);
+    });
+  },
+  setMessage: function(message) {
+    var _html;
+    return _html = '';
   },
   bind: function() {
-    return $(document).on('click', '#send-btn', function() {});
+    var _self;
+    _self = this;
+    return $(document).on('click', '#send-btn', function() {
+      var news;
+      news = $('#send-message').val();
+      if (news === '') {
+        console.log('请填写消息!!');
+        return false;
+      }
+      return _self.sendMessage(news);
+    });
   }
 };
 

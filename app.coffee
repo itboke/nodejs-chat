@@ -3,12 +3,12 @@ http = require('http')
 path = require('path')
 mime = require('mime')
 fs = require('fs')
-chat = require('./server_chat')
+chat = require('./lib/server_chat')
 cache = {}
 ### 全局 http 请求文件不存在 发送404 ###
 send404 = (response)->
 	response.writeHead 404,{'Content-Type':'text/plain'}
-	response.write 'Error 404: Page not found!!!!!!!'
+	response.write 'Error 404: Page not found!!!!!!!!!!!'
 	response.end()
 ### 发送文件内部的数据  ###
 sendFile = (response,filepath,fileContent)->
@@ -39,7 +39,7 @@ server = http.createServer (request,response)->
 		filepath = 'publish/index.html'
 	else
 		filepath = 'publish' + request.url
-	absPath = '../' + filepath
+	absPath = './' + filepath
 	###  响应请求  ###
 	serveStatic response,cache,absPath
 server.listen 8888

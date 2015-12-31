@@ -11,7 +11,7 @@ mime = require('mime');
 
 fs = require('fs');
 
-chat = require('./server_chat');
+chat = require('./lib/server_chat');
 
 cache = {};
 
@@ -22,7 +22,7 @@ send404 = function(response) {
   response.writeHead(404, {
     'Content-Type': 'text/plain'
   });
-  response.write('Error 404: Page not found!!!!!!!');
+  response.write('Error 404: Page not found!!!!!!!!!!!');
   return response.end();
 };
 
@@ -72,7 +72,7 @@ server = http.createServer(function(request, response) {
   } else {
     filepath = 'publish' + request.url;
   }
-  absPath = '../' + filepath;
+  absPath = './' + filepath;
 
   /*  响应请求 */
   return serveStatic(response, cache, absPath);

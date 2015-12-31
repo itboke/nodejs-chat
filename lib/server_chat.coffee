@@ -8,10 +8,13 @@ chat=(server)->
 	guestNumber = 1
 	io = socketio.listen server
 	io.sockets.on 'connection',(socket)->
-		console.log(socket)
+		socket.on 'send',(msg)->
+			socket.emit 'get',msg
 
 
-exports.listen = chat(server)
+
+
+exports.listen = chat
 	
 
 
