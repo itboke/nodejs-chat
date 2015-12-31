@@ -1,0 +1,33 @@
+*{
+	margin:0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+.content{
+	width: 800px;
+	margin: 100px auto 0;
+	border:1px solid #ddd;
+}
+.room-name{
+	text-indent: 26px;
+	line-height: 45px;
+	border-bottom:1px solid #ddd;
+}
+.name-list li{
+	padding: 5px 0px;
+	text-indent: 26px;
+}
+.message-list ul{
+	height: 400px;
+	background-color: #ededed;
+}
+.message-list li{
+	padding: 5px 0px;
+	text-indent: 26px;
+}
+.form{
+	padding: 15px 0px;
+	text-align:center;
+}
