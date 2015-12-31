@@ -8,12 +8,13 @@ cache = {}
 ### 全局 http 请求文件不存在 发送404 ###
 send404 = (response)->
 	response.writeHead 404,{'Content-Type':'text/plain'}
-	response.write 'Error 404: Page not found!'
+	response.write 'Error 404: Page not found!!!!!!!'
 	response.end()
 ### 发送文件内部的数据  ###
 sendFile = (response,filepath,fileContent)->
 	response.writeHead 200,{'Content-Type':mime.lookup path.basename filepath}
 	response.end fileContent
+	chat.listen server
 ### 提供静态文件服务 ###
 serveStatic = (response,cache,absPath)->
 	if cache[absPath]
