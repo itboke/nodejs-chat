@@ -33,8 +33,7 @@ sendFile = function(response, filepath, fileContent) {
   response.writeHead(200, {
     'Content-Type': mime.lookup(path.basename(filepath))
   });
-  response.end(fileContent);
-  return chat.listen(server);
+  return response.end(fileContent);
 };
 
 
@@ -79,3 +78,5 @@ server = http.createServer(function(request, response) {
 });
 
 server.listen(8888);
+
+chat.listen(server);

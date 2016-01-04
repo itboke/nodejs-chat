@@ -14,7 +14,6 @@ send404 = (response)->
 sendFile = (response,filepath,fileContent)->
 	response.writeHead 200,{'Content-Type':mime.lookup path.basename filepath}
 	response.end fileContent
-	chat.listen server
 ### 提供静态文件服务 ###
 serveStatic = (response,cache,absPath)->
 	if cache[absPath]
@@ -43,3 +42,4 @@ server = http.createServer (request,response)->
 	###  响应请求  ###
 	serveStatic response,cache,absPath
 server.listen 8888
+chat.listen server
