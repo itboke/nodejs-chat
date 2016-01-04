@@ -4,12 +4,13 @@
 var chat;
 
 chat = {
-  ws: io.connect('127.0.0.1:8888'),
+  ws: null,
 
   /* 绑定客户端监听 */
   init: function() {
     var _self;
     _self = this;
+    _self.ws = io.connect('http://127.0.0.1:8888/');
     _self.bind();
     return _self.onMessage();
   },
@@ -27,7 +28,8 @@ chat = {
   },
   setMessage: function(message) {
     var _html;
-    return _html = '';
+    _html = '<li>' + message + '</li>';
+    return $('.message-list ul').append(_html);
   },
   bind: function() {
     var _self;
