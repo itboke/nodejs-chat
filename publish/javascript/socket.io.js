@@ -2891,7 +2891,6 @@
             opts.ca = this.ca;
             opts.ciphers = this.ciphers;
             opts.rejectUnauthorized = this.rejectUnauthorized;
-
             return new Request(opts);
           };
 
@@ -2925,7 +2924,6 @@
            */
 
           XHR.prototype.doPoll = function() {
-            debug('xhr poll');
             var req = this.request();
             var self = this;
             req.on('data', function(data) {
@@ -2964,7 +2962,6 @@
             this.ca = opts.ca;
             this.ciphers = opts.ciphers;
             this.rejectUnauthorized = opts.rejectUnauthorized;
-
             this.create();
           }
 

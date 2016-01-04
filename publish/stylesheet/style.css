@@ -15,9 +15,8 @@ li{
 	line-height: 45px;
 	border-bottom:1px solid #ddd;
 }
-.name-list li{
-	padding: 5px 0px;
-	text-indent: 26px;
+.name-list{
+	padding: 15px 20px;
 }
 .message-list ul{
 	height: 400px;

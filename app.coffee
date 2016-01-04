@@ -41,5 +41,5 @@ server = http.createServer (request,response)->
 	absPath = './' + filepath
 	###  响应请求  ###
 	serveStatic response,cache,absPath
-server.listen 8888
 chat.listen server
+server.listen 8888
